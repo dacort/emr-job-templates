@@ -6,10 +6,11 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-COPY requirements.txt .
+WORKDIR /app
+COPY . .
 RUN python3 -m pip install --upgrade pip && \
     python3 -m pip install venv-pack==0.2.0 && \
-    python3 -m pip install -r requirements.txt
+    python3 -m pip install .
 
 RUN mkdir /output && venv-pack -o /output/pyspark_deps.tar.gz
 
