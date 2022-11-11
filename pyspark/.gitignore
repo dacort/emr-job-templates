@@ -3,3 +3,9 @@ __pycache__/
 
 # Unit test / coverage reports
 .pytest_cache/
+
+# Build artifacts
+dist/
+
+# Python stuff
+.venv/
